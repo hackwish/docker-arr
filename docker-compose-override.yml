@@ -1,0 +1,17 @@
+services:
+  radarr:
+    volumes:
+      - ./YOUR-PATH-FOR-movies:/movies
+  sonarr:
+    volumes:
+      - ./YOUR-PATH-FOR-tvseries:/tv
+  lidarr:
+    volumes:
+      - ./YOUR-PATH-FOR-music:/music
+  sabnzbd:
+    volumes:
+      - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
+  transmission:
+    volumes:
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+      - ./YOUR-PATH-FOR-torrent-watch-transmission:/watch
