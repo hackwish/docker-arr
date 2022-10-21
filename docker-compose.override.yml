@@ -2,12 +2,15 @@ services:
   radarr:
     volumes:
       - ./YOUR-PATH-FOR-movies:/movies
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   sonarr:
     volumes:
       - ./YOUR-PATH-FOR-tvseries:/tv
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   lidarr:
     volumes:
       - ./YOUR-PATH-FOR-music:/music
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   sabnzbd:
     volumes:
       - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
