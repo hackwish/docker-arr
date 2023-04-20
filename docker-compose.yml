@@ -86,7 +86,7 @@ services:
       PGID: 1000
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
-      TRANSMISSION_WEB_HOME: /transmissionic/ #optional
+      # TRANSMISSION_WEB_HOME: /transmissionic/ #optional
       # USER: username #optional
       # PASS: password #optional
       # WHITELIST: iplist #optional
