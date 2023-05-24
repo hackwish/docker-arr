@@ -23,6 +23,11 @@ services:
   unpackerr:
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+    environment:
+      UN_SONARR_0_API_KEY: ''
+      UN_RADARR_0_API_KEY: ''
+      UN_LIDARR_0_API_KEY: ''
+      UN_READARR_0_API_KEY: ''
   mylar3:
     volumes:
       - ./YOUR-PATH-FOR-books:/comics
