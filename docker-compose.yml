@@ -94,7 +94,7 @@ services:
     restart: unless-stopped
   readarr:
     image: cr.hotio.dev/hotio/readarr
-    container_name: bazarr
+    container_name: readarr
     environment:
       PUID: 1000
       PGID: 1000
@@ -127,7 +127,7 @@ services:
       - ./config-unpackerr:/config
     restart: always
     # Get the user:group correct so unpackerr can read and write to your files.
-    user: ${PUID}:${PGID}
+    # user: ${PUID}:${PGID}
     #user: 1000:1000
     # What you see below are defaults for this compose. You only need to modify things specific to your environment.
     environment:
