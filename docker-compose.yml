@@ -235,6 +235,10 @@ volumes:
   config-radarr:
   config-sonarr:
   config-prowlarr:
+  config-bazarr:
+  config-readarr:
+  config-unpackerr:
+  config-mylar3:
   # config-sabnzbd:
   config-transmission:
   # downloads-lidarr:
