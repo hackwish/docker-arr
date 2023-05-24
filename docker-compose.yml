@@ -116,7 +116,7 @@ services:
       CONTAINER_TIMEZONE: America/Santiago
       TZ: America/Santiago
     volumes:
-      - ./mylar3-config:/config
+      - ./config-mylar3:/config
     ports:
       - 8090:8090
     restart: unless-stopped
