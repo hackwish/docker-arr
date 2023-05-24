@@ -11,9 +11,25 @@ services:
     volumes:
       - ./YOUR-PATH-FOR-music:/music
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
-  sabnzbd:
+  bazarr:
     volumes:
-      - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
+      - ./YOUR-PATH-FOR-movies:/movies
+      - ./YOUR-PATH-FOR-tvseries:/tv
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  readarr:
+    volumes:
+      - ./YOUR-PATH-FOR-books:/books
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  unpackerr:
+    volumes:
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  mylar3:
+    volumes:
+      - ./YOUR-PATH-FOR-books:/comics
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  # sabnzbd:
+  #   volumes:
+  #     - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
   transmission:
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
