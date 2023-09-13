@@ -1,26 +1,74 @@
 services:
   radarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-movies:/movies
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   sonarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-tvseries:/tv
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   lidarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-music:/music
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   bazarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-movies:/movies
       - ./YOUR-PATH-FOR-tvseries:/tv
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   readarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-books:/books
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   unpackerr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
     environment:
@@ -29,13 +77,31 @@ services:
       UN_LIDARR_0_API_KEY: ''
       UN_READARR_0_API_KEY: ''
   mylar3:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-books:/comics
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  # notifiarr:
+  #   volumes:
   # sabnzbd:
   #   volumes:
   #     - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
   transmission:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
       - ./YOUR-PATH-FOR-torrent-watch-transmission:/watch
