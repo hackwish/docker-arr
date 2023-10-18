@@ -102,6 +102,13 @@ services:
         reservations:
           cpus: '0.0001'
           memory: 20M
+    environment:
+      # TRANSMISSION_WEB_HOME: /transmissionic/ #optional
+      # USER: username #optional
+      # PASS: password #optional
+      # WHITELIST: iplist #optional
+      # PEERPORT: peerport #optional
+      # HOST_WHITELIST: dnsname list #optional
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
       - ./YOUR-PATH-FOR-torrent-watch-transmission:/watch
