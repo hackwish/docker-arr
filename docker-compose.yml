@@ -106,20 +106,20 @@ services:
     ports:
       - 8787:8787
     restart: unless-stopped
-  mylar3:
-    image: lscr.io/linuxserver/mylar3:latest
-    container_name: mylar3
-    environment:
-      PUID: 1000
-      PGID: 1000
-      SET_CONTAINER_TIMEZONE: 'true'
-      CONTAINER_TIMEZONE: America/Santiago
-      TZ: America/Santiago
-    volumes:
-      - ./config-mylar3:/config
-    ports:
-      - 8090:8090
-    restart: unless-stopped
+  # mylar3:
+  #   image: lscr.io/linuxserver/mylar3:latest
+  #   container_name: mylar3
+  #   environment:
+  #     PUID: 1000
+  #     PGID: 1000
+  #     SET_CONTAINER_TIMEZONE: 'true'
+  #     CONTAINER_TIMEZONE: America/Santiago
+  #     TZ: America/Santiago
+  #   volumes:
+  #     - ./config-mylar3:/config
+  #   ports:
+  #     - 8090:8090
+  #   restart: unless-stopped
   unpackerr:
     image: golift/unpackerr
     container_name: unpackerr
@@ -221,6 +221,20 @@ services:
   #     - ./config-notifiarr:/config
   #     - /var/run/utmp:/var/run/utmp
   #     - /etc/machine-id:/etc/machine-id
+  jellyseerr:
+     image: fallenbagel/jellyseerr:latest
+     container_name: jellyseerr
+     environment:
+      LOG_LEVEL: debug
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+     ports:
+          - 5055:5055
+     volumes:
+          - ./config-jellyseerr:/app/config
+     restart: unless-stopped
   transmission:
     image: lscr.io/linuxserver/transmission:latest
     container_name: transmission
@@ -254,6 +268,7 @@ volumes:
   # config-notifiarr:
   # config-sabnzbd:
   config-transmission:
+  config-jellyseerr:
   # downloads-lidarr:
   # downloads-radarr:
   # downloads-sonarr:

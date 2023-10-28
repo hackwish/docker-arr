@@ -3,11 +3,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '0.5'
+          memory: 512M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-movies:/movies
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
@@ -15,11 +15,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '1'
+          memory: 1000M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-tvseries:/tv
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
@@ -27,11 +27,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '1'
+          memory: 1000M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-music:/music
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
@@ -39,11 +39,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '0.5'
+          memory: 512M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-movies:/movies
       - ./YOUR-PATH-FOR-tvseries:/tv
@@ -52,11 +52,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '0.5'
+          memory: 512M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-books:/books
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
@@ -64,11 +64,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '0.5'
+          memory: 512M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
     environment:
@@ -76,32 +76,41 @@ services:
       UN_RADARR_0_API_KEY: ''
       UN_LIDARR_0_API_KEY: ''
       UN_READARR_0_API_KEY: ''
-  mylar3:
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 50M
-        reservations:
-          cpus: '0.0001'
-          memory: 20M
-    volumes:
-      - ./YOUR-PATH-FOR-books:/comics
-      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  # mylar3:
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: '0.5'
+  #         memory: 512M
+  #       reservations:
+  #         # cpus: '0.0001'
+  #         memory: 10M
+  #   volumes:
+  #     - ./YOUR-PATH-FOR-books:/comics
+  #     - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   # notifiarr:
   #   volumes:
   # sabnzbd:
   #   volumes:
   #     - ./YOUR-PATH-FOR-downloads-sabnzbd:/downloads
+  jellyseerr:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          # cpus: '0.0001'
+          memory: 10M
   transmission:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
-          memory: 50M
+          cpus: '0.5'
+          memory: 512M
         reservations:
-          cpus: '0.0001'
-          memory: 20M
+          # cpus: '0.0001'
+          memory: 10M
     environment:
       # TRANSMISSION_WEB_HOME: /transmissionic/ #optional
       # USER: username #optional
