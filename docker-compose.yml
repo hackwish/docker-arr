@@ -49,7 +49,7 @@ services:
       # - ./music:/music #optional
       # - ./downloads-lidarr:/downloads #optional
   prowlarr:
-    image: cr.hotio.dev/hotio/prowlarr # lscr.io/linuxserver/prowlarr:develop
+    image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
     environment:
       PUID: 1000
@@ -93,7 +93,7 @@ services:
       - 6767:6767
     restart: unless-stopped
   readarr:
-    image: cr.hotio.dev/hotio/readarr
+    image: lscr.io/linuxserver/readarr:develop
     container_name: readarr
     environment:
       PUID: 1000
@@ -221,6 +221,16 @@ services:
   #     - ./config-notifiarr:/config
   #     - /var/run/utmp:/var/run/utmp
   #     - /etc/machine-id:/etc/machine-id
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr
+    container_name: recyclarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+    volumes:
+      - ./config:/config
   jellyseerr:
      image: fallenbagel/jellyseerr:latest
      container_name: jellyseerr
