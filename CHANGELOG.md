@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/hackwish/docker-arr/compare/v1.0.0...v1.1.0) (2023-10-28)
+
+
+### Features
+
+* **jellyseerr:** Add Jellyseerr. Update resource reservations and limits ([8986a90](https://github.com/hackwish/docker-arr/commit/8986a901e689725372e3bacbb33ce3b9d02b6487))
+
 # 1.0.0 (2023-10-18)
 
 
