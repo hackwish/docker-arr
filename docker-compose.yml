@@ -62,22 +62,6 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
-  # sabnzbd:
-  #   image: lscr.io/linuxserver/sabnzbd:latest
-  #   container_name: sabnzbd
-  #   environment:
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #     TZ: America/Santiago
-  #   volumes:
-  #     - ./config-sabnzbd:/config
-  #     # - ./downloads-sabnzbd:/downloads #optional
-  #     # - ./downloads-sabnzbd/incomplete:/incomplete-downloads #optional
-  #   ports:
-  #     - 8080:8080
-  #   restart: unless-stopped
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
@@ -106,20 +90,6 @@ services:
     ports:
       - 8787:8787
     restart: unless-stopped
-  # mylar3:
-  #   image: lscr.io/linuxserver/mylar3:latest
-  #   container_name: mylar3
-  #   environment:
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #     TZ: America/Santiago
-  #   volumes:
-  #     - ./config-mylar3:/config
-  #   ports:
-  #     - 8090:8090
-  #   restart: unless-stopped
   unpackerr:
     image: golift/unpackerr
     container_name: unpackerr
@@ -205,22 +175,6 @@ services:
       # UN_CMDHOOK_0_EVENTS_0: 0
     security_opt:
       - no-new-privileges:true
-  # notifiarr:
-  #   container_name: notifiarr
-  #   hostname: notifiarr
-  #   image: golift/notifiarr
-  #   restart: unless-stopped
-  #   environment:
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #   ports:
-  #     - 5454:5454
-  #   volumes:
-  #     - ./config-notifiarr:/config
-  #     - /var/run/utmp:/var/run/utmp
-  #     - /etc/machine-id:/etc/machine-id
   recyclarr:
     image: ghcr.io/recyclarr/recyclarr
     container_name: recyclarr
@@ -231,20 +185,6 @@ services:
       CONTAINER_TIMEZONE: America/Santiago
     volumes:
       - ./config:/config
-  jellyseerr:
-     image: fallenbagel/jellyseerr:latest
-     container_name: jellyseerr
-     environment:
-      LOG_LEVEL: debug
-      PUID: 1000
-      PGID: 1000
-      SET_CONTAINER_TIMEZONE: 'true'
-      CONTAINER_TIMEZONE: America/Santiago
-     ports:
-          - 5055:5055
-     volumes:
-          - ./config-jellyseerr:/app/config
-     restart: unless-stopped
   transmission:
     image: lscr.io/linuxserver/transmission:latest
     container_name: transmission
@@ -266,6 +206,20 @@ services:
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped
+  jellyseerr:
+     image: fallenbagel/jellyseerr:latest
+     container_name: jellyseerr
+     environment:
+      LOG_LEVEL: debug
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+     ports:
+          - 5055:5055
+     volumes:
+          - ./config-jellyseerr:/app/config
+     restart: unless-stopped
 volumes:
   config-lidarr:
   config-radarr:
@@ -275,14 +229,5 @@ volumes:
   config-readarr:
   config-unpackerr:
   config-mylar3:
-  # config-notifiarr:
-  # config-sabnzbd:
   config-transmission:
   config-jellyseerr:
-  # downloads-lidarr:
-  # downloads-radarr:
-  # downloads-sonarr:
-  # downloads-sabnzbd:
-  # movies:
-  # music:
-  # tvseries:
