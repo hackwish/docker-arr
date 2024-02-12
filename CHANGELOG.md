@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/hackwish/docker-arr/compare/v1.1.0...v1.1.1) (2024-02-12)
+
+
+### Bug Fixes
+
+* **compose:** fix image link for prowlarr and readarr. Add recyclarr ([d4abda4](https://github.com/hackwish/docker-arr/commit/d4abda4357fe4fbe4f49c01a7ced93b8aab65fc7))
+
 # [1.1.0](https://github.com/hackwish/docker-arr/compare/v1.0.0...v1.1.0) (2023-10-28)
 
 
