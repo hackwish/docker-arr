@@ -220,6 +220,35 @@ services:
      volumes:
           - ./config-jellyseerr:/app/config
      restart: unless-stopped
+  lingarr:
+    image: lingarr/lingarr:latest
+    container_name: lingarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+    restart: unless-stopped
+    ports:
+      - "9876:8080"
+    volumes:
+      - ./config-lingarr:/app/config
+  # libretranslate:
+  #   container_name: libretranslate
+  #   image: libretranslate/libretranslate:latest
+  #   restart: unless-stopped
+  #   environment:
+  #     LT_LOAD_ONLY: es,en  # Important, replace with your preferred languages
+  #     PUID: 1000
+  #     PGID: 1000
+  #     SET_CONTAINER_TIMEZONE: 'true'
+  #     CONTAINER_TIMEZONE: America/Santiago
+  #   ports:
+  #     - 5000:5000
+  #   volumes:
+  #     - ./config-libretranslate:/home/libretranslate/.local/share/argos-translate
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py"]
 volumes:
   config-lidarr:
   config-radarr:
@@ -231,3 +260,5 @@ volumes:
   config-mylar3:
   config-transmission:
   config-jellyseerr:
+  config-lingarr:
+  # config-libretranslate:
