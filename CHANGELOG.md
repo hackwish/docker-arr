@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/hackwish/docker-arr/compare/v1.1.2...v1.1.3) (2025-01-17)
+
+
+### Bug Fixes
+
+* **compose:** Add lingarr ([f51a5ff](https://github.com/hackwish/docker-arr/commit/f51a5fffa398582dd1e4b8ccb45b4ca89e091d80))
+
 ## [1.1.2](https://github.com/hackwish/docker-arr/compare/v1.1.1...v1.1.2) (2024-02-12)
 
 
