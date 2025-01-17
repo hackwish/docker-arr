@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/hackwish/docker-arr/compare/v1.1.1...v1.1.2) (2024-02-12)
+
+
+### Bug Fixes
+
+* **compose:** clean and update ([86ee86e](https://github.com/hackwish/docker-arr/commit/86ee86e3ab2a274e6bae728a0c7c6471f154238a))
+
 ## [1.1.1](https://github.com/hackwish/docker-arr/compare/v1.1.0...v1.1.1) (2024-02-12)
 
 
