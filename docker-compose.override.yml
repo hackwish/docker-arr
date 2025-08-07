@@ -95,15 +95,15 @@ services:
     volumes:
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
       - ./YOUR-PATH-FOR-torrent-watch-transmission:/watch
-  jellyseerr:
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 512M
-        reservations:
-          # cpus: '0.0001'
-          memory: 10M
+  # jellyseerr:
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: '0.5'
+  #         memory: 512M
+  #       reservations:
+  #         # cpus: '0.0001'
+  #         memory: 10M
   lingarr:
     deploy:
       resources:
