@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/hackwish/docker-arr/compare/v1.1.10...v1.1.11) (2025-08-07)
+
+
+### Bug Fixes
+
+* **libretranslate:** Update lang models ([2cfc340](https://github.com/hackwish/docker-arr/commit/2cfc340baba71f584fa870d7e0c2a9fe08a5d74d))
+
 ## [1.1.10](https://github.com/hackwish/docker-arr/compare/v1.1.9...v1.1.10) (2025-08-07)
 
 
