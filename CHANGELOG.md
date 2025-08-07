@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/hackwish/docker-arr/compare/v1.1.7...v1.1.8) (2025-08-07)
+
+
+### Bug Fixes
+
+* **arr:** Update Lidarr image ([c566dd8](https://github.com/hackwish/docker-arr/commit/c566dd817753d1cd3dc8acd9fd0a13ed72d0d29a))
+
 ## [1.1.7](https://github.com/hackwish/docker-arr/compare/v1.1.6...v1.1.7) (2025-08-07)
 
 
