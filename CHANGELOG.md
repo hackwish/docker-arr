@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/hackwish/docker-arr/compare/v1.1.5...v1.1.6) (2025-08-07)
+
+
+### Bug Fixes
+
+* **arr:** Enable Lidarr and Readarr ([68fc2ed](https://github.com/hackwish/docker-arr/commit/68fc2ed78836ec351ad662771cf1475100784775))
+
 ## [1.1.5](https://github.com/hackwish/docker-arr/compare/v1.1.4...v1.1.5) (2025-08-07)
 
 
