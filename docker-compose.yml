@@ -232,7 +232,7 @@ services:
     environment:
       LT_API_KEYS: true
       LT_API_KEYS_DB_PATH: /app/db/api_keys.db
-      LT_LOAD_ONLY: es,en,de,fr,jp,kr  # Important, replace with your preferred languages
+      LT_LOAD_ONLY: es,en  # Important, replace with your preferred languages
       LT_UPDATE_MODELS: true
       LT_REQ_LIMIT: 120
       LT_DEBUG: False
