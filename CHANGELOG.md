@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/hackwish/docker-arr/compare/v1.1.4...v1.1.5) (2025-08-07)
+
+
+### Bug Fixes
+
+* **arr:** Disable Lidarr ([1aa4517](https://github.com/hackwish/docker-arr/commit/1aa45176496d06b81264bb099efbfd74846769bd))
+
 ## [1.1.4](https://github.com/hackwish/docker-arr/compare/v1.1.3...v1.1.4) (2025-08-07)
 
 
