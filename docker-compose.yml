@@ -32,22 +32,22 @@ services:
       - ./config-sonarr:/config
       # - ./tvseries:/tv #optional
       # - ./downloads-sonarr:/downloads #optional
-  # lidarr:
-  #   image: lscr.io/linuxserver/lidarr:latest
-  #   container_name: lidarr
-  #   ports:
-  #     - 8686:8686
-  #   restart: unless-stopped
-  #   environment:
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #     TZ: America/Santiago
-  #   volumes:
-  #     - ./config-lidarr:/config
-  #     # - ./music:/music #optional
-  #     # - ./downloads-lidarr:/downloads #optional
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+      TZ: America/Santiago
+    volumes:
+      - ./config-lidarr:/config
+      # - ./music:/music #optional
+      # - ./downloads-lidarr:/downloads #optional
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
@@ -76,20 +76,20 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
-  # readarr:
-  #   image: lscr.io/linuxserver/readarr:develop
-  #   container_name: readarr
-  #   environment:
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #     TZ: America/Santiago
-  #   volumes:
-  #     - ./config-bazarr:/config
-  #   ports:
-  #     - 8787:8787
-  #   restart: unless-stopped
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+      TZ: America/Santiago
+    volumes:
+      - ./config-bazarr:/config
+    ports:
+      - 8787:8787
+    restart: unless-stopped
   unpackerr:
     image: golift/unpackerr
     container_name: unpackerr
@@ -272,12 +272,12 @@ services:
       start_period: 30s    # Wait 30 seconds before first check
       retries: 3           # Mark unhealthy after 3 consecutive failures
 volumes:
-  # config-lidarr:
+  config-lidarr:
   config-radarr:
   config-sonarr:
   config-prowlarr:
   config-bazarr:
-  # config-readarr:
+  config-readarr:
   config-unpackerr:
   config-transmission:
   config-lingarr:
