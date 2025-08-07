@@ -33,7 +33,7 @@ services:
       # - ./tvseries:/tv #optional
       # - ./downloads-sonarr:/downloads #optional
   lidarr:
-    image: ghcr.io/hotio/lidarr:latest
+    image: ghcr.io/hotio/lidarr:release-481fa35-1118-linux-arm64
     container_name: lidarr
     ports:
       - 8686:8686
