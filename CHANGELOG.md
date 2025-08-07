@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/hackwish/docker-arr/compare/v1.1.3...v1.1.4) (2025-08-07)
+
+
+### Bug Fixes
+
+* **arr:** Add libretranslate, huntarr and cleanuparr ([0ecb536](https://github.com/hackwish/docker-arr/commit/0ecb53601a1831d1acdbf1af5ded4a48e77d2d5c))
+* **arr:** Add libretranslate, huntarr and cleanuparr ([cc8e1b5](https://github.com/hackwish/docker-arr/commit/cc8e1b55cccd9a1a6dbcbb64ba448cc9b7e03fdc))
+
 ## [1.1.3](https://github.com/hackwish/docker-arr/compare/v1.1.2...v1.1.3) (2025-01-17)
 
 
