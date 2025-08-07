@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/hackwish/docker-arr/compare/v1.1.8...v1.1.9) (2025-08-07)
+
+
+### Bug Fixes
+
+* **arr:** Disable Readarr ([9f331a9](https://github.com/hackwish/docker-arr/commit/9f331a96f7356263da2572d5ea1fe834c4a881ac))
+
 ## [1.1.8](https://github.com/hackwish/docker-arr/compare/v1.1.7...v1.1.8) (2025-08-07)
 
 
