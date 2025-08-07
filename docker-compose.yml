@@ -230,15 +230,23 @@ services:
     image: libretranslate/libretranslate:latest
     restart: unless-stopped
     environment:
+      LT_API_KEYS: true
+      LT_API_KEYS_DB_PATH: /app/db/api_keys.db
       LT_LOAD_ONLY: es,en,de,fr,jp,kr  # Important, replace with your preferred languages
-      # PUID: 1000
-      # PGID: 1000
+      LT_UPDATE_MODELS: true
+      LT_REQ_LIMIT: 120
+      LT_DEBUG: False
+      PUID: root
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
     ports:
       - 5000:5000
     volumes:
-      - ./config-libretranslate:/home/libretranslate/.local/share/argos-translate
+      # - ./config-libretranslate:/home/libretranslate/.local/share/argos-translate
+      - libretranslate_api_keys:/app/db
+      - libretranslate_data:/root/.local:rw
+      # Keep the models in a docker volume, to avoid re-downloading on startup
+      - libretranslate_models:/home/libretranslate/.local:rw
     healthcheck:
       test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py"]
   huntarr:
@@ -291,4 +299,6 @@ volumes:
   config-lingarr:
   config-huntarr:
   config-cleanuparr:
-  config-libretranslate:
+  libretranslate_api_keys:
+  libretranslate_models:
+  libretranslate_data:
