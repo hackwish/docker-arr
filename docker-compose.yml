@@ -33,7 +33,7 @@ services:
       # - ./tvseries:/tv #optional
       # - ./downloads-sonarr:/downloads #optional
   lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
+    image: ghcr.io/hotio/lidarr:latest
     container_name: lidarr
     ports:
       - 8686:8686
@@ -46,6 +46,7 @@ services:
       TZ: America/Santiago
     volumes:
       - ./config-lidarr:/config
+      - ./data-lidarr:/data
       # - ./music:/music #optional
       # - ./downloads-lidarr:/downloads #optional
   prowlarr:
@@ -273,6 +274,7 @@ services:
       retries: 3           # Mark unhealthy after 3 consecutive failures
 volumes:
   config-lidarr:
+  data-lidarr:
   config-radarr:
   config-sonarr:
   config-prowlarr:
