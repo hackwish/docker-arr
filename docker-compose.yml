@@ -76,20 +76,20 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr
-    environment:
-      PUID: 1000
-      PGID: 1000
-      SET_CONTAINER_TIMEZONE: 'true'
-      CONTAINER_TIMEZONE: America/Santiago
-      TZ: America/Santiago
-    volumes:
-      - ./config-bazarr:/config
-    ports:
-      - 8787:8787
-    restart: unless-stopped
+  # readarr:
+  #   image: lscr.io/linuxserver/readarr:develop
+  #   container_name: readarr
+  #   environment:
+  #     PUID: 1000
+  #     PGID: 1000
+  #     SET_CONTAINER_TIMEZONE: 'true'
+  #     CONTAINER_TIMEZONE: America/Santiago
+  #     TZ: America/Santiago
+  #   volumes:
+  #     - ./config-bazarr:/config
+  #   ports:
+  #     - 8787:8787
+  #   restart: unless-stopped
   unpackerr:
     image: golift/unpackerr
     container_name: unpackerr
@@ -206,20 +206,6 @@ services:
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped
-  # jellyseerr:
-  #    image: fallenbagel/jellyseerr:latest
-  #    container_name: jellyseerr
-  #    environment:
-  #     LOG_LEVEL: debug
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #    ports:
-  #         - 5055:5055
-  #    volumes:
-  #         - ./config-jellyseerr:/app/config
-  #    restart: unless-stopped
   lingarr:
     image: lingarr/lingarr:latest
     container_name: lingarr
@@ -233,22 +219,58 @@ services:
       - "9876:8080"
     volumes:
       - ./config-lingarr:/app/config
-  # libretranslate:
-  #   container_name: libretranslate
-  #   image: libretranslate/libretranslate:latest
-  #   restart: unless-stopped
-  #   environment:
-  #     LT_LOAD_ONLY: es,en  # Important, replace with your preferred languages
-  #     PUID: 1000
-  #     PGID: 1000
-  #     SET_CONTAINER_TIMEZONE: 'true'
-  #     CONTAINER_TIMEZONE: America/Santiago
-  #   ports:
-  #     - 5000:5000
-  #   volumes:
-  #     - ./config-libretranslate:/home/libretranslate/.local/share/argos-translate
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py"]
+  libretranslate:
+    container_name: libretranslate
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    environment:
+      LT_LOAD_ONLY: es,en,de,fr,jp,kr  # Important, replace with your preferred languages
+      # PUID: 1000
+      # PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+    ports:
+      - 5000:5000
+    volumes:
+      - ./config-libretranslate:/home/libretranslate/.local/share/argos-translate
+    healthcheck:
+      test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py"]
+  huntarr:
+    image: huntarr/huntarr:latest
+    container_name: huntarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+    restart: always
+    ports:
+      - "9705:9705"
+    volumes:
+      - ./config-huntarr:/config
+  cleanuparr:
+    image: ghcr.io/cleanuparr/cleanuparr:latest
+    container_name: cleanuparr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+      PORT: 11011
+      # UMASK: 022
+      TZ: America/Santiago
+    restart: unless-stopped
+    ports:
+      - "11011:11011"
+    volumes:
+      - ./config-cleanuparr:/config
+    # Health check configuration
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11011/health"]
+      interval: 30s        # Check every 30 seconds
+      timeout: 10s         # Allow up to 10 seconds for response
+      start_period: 30s    # Wait 30 seconds before first check
+      retries: 3           # Mark unhealthy after 3 consecutive failures
 volumes:
   config-lidarr:
   config-radarr:
@@ -257,8 +279,8 @@ volumes:
   config-bazarr:
   config-readarr:
   config-unpackerr:
-  config-mylar3:
   config-transmission:
-  config-jellyseerr:
   config-lingarr:
-  # config-libretranslate:
+  config-huntarr:
+  config-cleanuparr:
+  config-libretranslate:
