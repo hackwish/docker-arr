@@ -23,18 +23,18 @@ services:
     volumes:
       - ./YOUR-PATH-FOR-tvseries:/tv
       - ./YOUR-PATH-FOR-downloads-transmission:/downloads
-  # lidarr:
-  #   deploy:
-  #     resources:
-  #       limits:
-  #         cpus: '1'
-  #         memory: 1000M
-  #       reservations:
-  #         # cpus: '0.0001'
-  #         memory: 10M
-  #   volumes:
-  #     - ./YOUR-PATH-FOR-music:/music
-  #     - ./YOUR-PATH-FOR-downloads-transmission:/downloads
+  lidarr:
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1000M
+        reservations:
+          # cpus: '0.0001'
+          memory: 10M
+    volumes:
+      - ./YOUR-PATH-FOR-music:/music
+      - ./YOUR-PATH-FOR-downloads-transmission:/downloads
   bazarr:
     deploy:
       resources:

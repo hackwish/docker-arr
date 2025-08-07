@@ -33,7 +33,7 @@ services:
       # - ./tvseries:/tv #optional
       # - ./downloads-sonarr:/downloads #optional
   lidarr:
-    image: ghcr.io/hotio/lidarr:release-481fa35-1118-linux-arm64
+    image: ghcr.io/hotio/lidarr:latest
     container_name: lidarr
     ports:
       - 8686:8686
@@ -41,6 +41,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+      UMASK: 002
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
       TZ: America/Santiago
@@ -50,11 +51,12 @@ services:
       # - ./music:/music #optional
       # - ./downloads-lidarr:/downloads #optional
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:latest
+    image: ghcr.io/hotio/prowlarr:latest
     container_name: prowlarr
     environment:
       PUID: 1000
       PGID: 1000
+      UMASK: 002
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
       TZ: America/Santiago
@@ -64,33 +66,36 @@ services:
       - 9696:9696
     restart: unless-stopped
   bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
+    image: ghcr.io/hotio/bazarr:latest
     container_name: bazarr
     environment:
       PUID: 1000
       PGID: 1000
+      UMASK: 002
+      WEBUI_PORTS: '6767/tcp,6767/udp'
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
       TZ: America/Santiago
     volumes:
       - ./config-bazarr:/config
+      - ./data-bazarr:/data
     ports:
       - 6767:6767
     restart: unless-stopped
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr
-    environment:
-      PUID: 1000
-      PGID: 1000
-      SET_CONTAINER_TIMEZONE: 'true'
-      CONTAINER_TIMEZONE: America/Santiago
-      TZ: America/Santiago
-    volumes:
-      - ./config-bazarr:/config
-    ports:
-      - 8787:8787
-    restart: unless-stopped
+  # readarr:
+  #   image: lscr.io/linuxserver/readarr:develop
+  #   container_name: readarr
+  #   environment:
+  #     PUID: 1000
+  #     PGID: 1000
+  #     SET_CONTAINER_TIMEZONE: 'true'
+  #     CONTAINER_TIMEZONE: America/Santiago
+  #     TZ: America/Santiago
+  #   volumes:
+  #     - ./config-bazarr:/config
+  #   ports:
+  #     - 8787:8787
+  #   restart: unless-stopped
   unpackerr:
     image: golift/unpackerr
     container_name: unpackerr
@@ -279,6 +284,7 @@ volumes:
   config-sonarr:
   config-prowlarr:
   config-bazarr:
+  data-bazarr:
   config-readarr:
   config-unpackerr:
   config-transmission:
