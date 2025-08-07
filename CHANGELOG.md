@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/hackwish/docker-arr/compare/v1.1.9...v1.1.10) (2025-08-07)
+
+
+### Bug Fixes
+
+* **libretranslate:** Update service ([32dd3d1](https://github.com/hackwish/docker-arr/commit/32dd3d18923b8872b7ecd09d016cce841b2db5dd))
+
 ## [1.1.9](https://github.com/hackwish/docker-arr/compare/v1.1.8...v1.1.9) (2025-08-07)
 
 
