@@ -1,3 +1,10 @@
+## [1.1.12](https://github.com/hackwish/docker-arr/compare/v1.1.11...v1.1.12) (2025-10-24)
+
+
+### Bug Fixes
+
+* **docker:** Add dispatcharr and boxarr ([2c84cd8](https://github.com/hackwish/docker-arr/commit/2c84cd8af5b75413ec3853a3b48765b632fd69c9))
+
 ## [1.1.11](https://github.com/hackwish/docker-arr/compare/v1.1.10...v1.1.11) (2025-08-07)
 
 
