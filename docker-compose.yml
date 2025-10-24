@@ -190,7 +190,7 @@ services:
       SET_CONTAINER_TIMEZONE: 'true'
       CONTAINER_TIMEZONE: America/Santiago
     volumes:
-      - ./config:/config
+      - ./config-recyclarr:/config
   transmission:
     image: lscr.io/linuxserver/transmission:latest
     container_name: transmission
@@ -285,6 +285,38 @@ services:
       timeout: 10s         # Allow up to 10 seconds for response
       start_period: 30s    # Wait 30 seconds before first check
       retries: 3           # Mark unhealthy after 3 consecutive failures
+  dispatcharr:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: ghcr.io/dispatcharr/dispatcharr:latest
+    container_name: dispatcharr
+    ports:
+      - 9191:9191
+    volumes:
+      - config-dispatcharr:/data
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
+      DISPATCHARR_ENV: aio
+      REDIS_HOST: localhost
+      CELERY_BROKER_URL: redis://localhost:6379/0
+      DISPATCHARR_LOG_LEVEL: info
+  boxarr:
+    image: ghcr.io/iongpt/boxarr:latest
+    container_name: boxarr
+    ports:
+      - 8888:8888
+    volumes:
+      - ./config-boxarr:/config
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      SET_CONTAINER_TIMEZONE: 'true'
+      CONTAINER_TIMEZONE: America/Santiago
 volumes:
   config-lidarr:
   data-lidarr:
@@ -296,9 +328,12 @@ volumes:
   config-readarr:
   config-unpackerr:
   config-transmission:
+  config-recyclarr:
   config-lingarr:
   config-huntarr:
   config-cleanuparr:
+  config-dispatcharr:
+  config-boxarr:
   libretranslate_api_keys:
   libretranslate_models:
   libretranslate_data:
